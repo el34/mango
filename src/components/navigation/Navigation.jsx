@@ -1,5 +1,6 @@
 import React from 'react'
-import { Col, Row } from 'antd';
+import { Link } from "react-router-dom"
+import { Col, Row } from 'antd'
 import styled from 'styled-components'
 import { Logo } from './Logo'
 
@@ -8,7 +9,9 @@ export const Navigation = () => {
     <HeaderWrapper>
       <Row style={{width: '100%'}}>
         <Col span={8}>
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
         </Col>
         <Col span={4} offset={12}>
           {/* TODO: make dropdown with booking item and subpage */}

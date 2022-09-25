@@ -8,8 +8,8 @@ const { Footer } = Layout
 
 export const App = () => (
   <Layout className="layout">
-    <Navigation />
     <BrowserRouter>
+      <Navigation />
       <Routes>
         <Route path="/results/" element={<FlightResultsList />} />
         <Route path="/" element={<MainPageList />} />
