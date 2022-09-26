@@ -10,8 +10,8 @@ export const DateInput = ({ inputLabel, name, handleDateInputChange }) => {
   const handleDatePickerOnChange = (value) => {
     handleDateInputChange(
       [
-        moment(value).subtract(1, "day").format(dateFormat),
-        moment(value).subtract(-1, "day").format(dateFormat),
+        `${moment(value).subtract(1, "day").format(dateFormat)}T22:00`,
+        `${moment(value).subtract(-1, "day").format(dateFormat)}T22:00`,
       ],
       name
     );

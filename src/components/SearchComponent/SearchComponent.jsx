@@ -3,8 +3,12 @@ import { Card, Row, Col, Button } from "antd";
 import { PlaceInput } from "./PlaceInput";
 import { DateInput } from "./DateInput";
 import styled from "styled-components";
+import { getFlights } from "./helpers";
+import { useNavigate } from "react-router-dom";
 
 export const SearchComponent = () => {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const [from, setFrom] = useState([]);
   const [to, setTo] = useState([]);
   const [departureDate, setDepartureDate] = useState([]);
@@ -16,6 +20,27 @@ export const SearchComponent = () => {
 
   const handleDateInputChange = (options, name) => {
     name === "departure" ? setDepartureDate(options) : setReturnDate(options);
+  };
+
+  const handleSubmitForm = async (e) => {
+    e.preventDefault();
+    if (isLoading === true) return;
+    setIsLoading(true);
+
+    const results = await getFlights({
+      from,
+      to,
+      departureDate,
+      returnDate,
+    });
+
+    if (results.data.length) {
+      console.log("dataaaaa");
+      navigate("/results");
+    }
+
+    setIsLoading(false);
+    console.log(results);
   };
 
   useEffect(() => {
@@ -60,7 +85,12 @@ export const SearchComponent = () => {
           </Col>
           <Col flex="100px" style={{ alignItems: "flex-start" }}>
             <ButtonWrapper>
-              <Button type="primary" size="large">
+              <Button
+                type="primary"
+                size="large"
+                loading={isLoading}
+                onClick={(e) => handleSubmitForm(e)}
+              >
                 Search
               </Button>
             </ButtonWrapper>
