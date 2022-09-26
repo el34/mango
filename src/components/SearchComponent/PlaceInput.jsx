@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Select, Typography, Tag } from "antd";
 import { blue } from "@ant-design/colors";
 import { debounce } from "lodash";
-import { getAirportPlaces } from "./helpers";
+import { getAirportLocations } from "./helpers";
 
 const { Text } = Typography;
 const { Option } = Select;
@@ -37,7 +37,7 @@ export const PlaceInput = ({ inputLabel, name, handlePlaceInputChange }) => {
 
   const handleOnInputKeyDown = debounce(async (searchValue) => {
     setIsLoading(true);
-    const places = await getAirportPlaces(searchValue);
+    const places = await getAirportLocations(searchValue);
     setAirportsData(places);
     setIsLoading(false);
   }, 300);
