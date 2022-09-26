@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { SearchComponent } from '../../components/SearchComponent/SearchComponent'
 
 export const MainPageList = () => {
   return (
     <MainPageWrapper>
-       <div>MainPage</div>
+       <SearchComponent />
     </MainPageWrapper>
   )
 }
