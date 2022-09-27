@@ -20,11 +20,12 @@ export const App = (props) => (
     <Footer
       style={{
         background: "#222",
-        height: "32px",
-        textAlign: "center",
+        textAlign: "right",
+        color: "#fff",
+        padding: "12px 24px",
       }}
     >
-      Ant Design ©2018 Created by Ant UED
+      For Kiwi | Samuel Meluch
     </Footer>
   </>
 );
