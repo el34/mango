@@ -36,7 +36,8 @@ export const Container = styled.div`
 `;
 
 export const ContainerSmall = styled.div`
-  max-width: 900px;
+  max-width: 1200px;
+  height: 100%;
   padding: 0 24px;
   margin: 0 auto;
 `;

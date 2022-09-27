@@ -73,9 +73,7 @@ export const PlaceInput = ({
         onChange={(option) => handleOnInputSelectChange(option)}
         defaultValue={values}
         options={options}
-        style={{
-          width: "200px",
-        }}
+        style={{ width: "100%" }}
       ></Select>
     </PlaceInputWrapper>
   );
@@ -83,4 +81,8 @@ export const PlaceInput = ({
 
 const PlaceInputWrapper = styled.div`
   width: 200px;
+  @media (max-width: 991px) {
+    width: 100%;
+    margin-bottom: 8px;
+  }
 `;

@@ -52,12 +52,12 @@ export const SearchComponent = () => {
   }, [from, to, departureDate, returnDate]);
 
   return (
-    <div>
-      <Card style={{ width: 1200 }}>
+    <SearchComponentWrapper>
+      <Card style={{ width: "100%" }}>
         <Row>
-          <Col flex="auto">
+          <Col xs={24} lg={20}>
             <Row>
-              <Col span={6}>
+              <Col xs={24} lg={6}>
                 <PlaceInput
                   inputLabel="From:"
                   name="from"
@@ -65,7 +65,7 @@ export const SearchComponent = () => {
                   handlePlaceInputChange={handlePlaceInputChange}
                 />
               </Col>
-              <Col span={6}>
+              <Col xs={24} lg={6}>
                 <PlaceInput
                   inputLabel="To:"
                   name="to"
@@ -73,7 +73,7 @@ export const SearchComponent = () => {
                   handlePlaceInputChange={handlePlaceInputChange}
                 />
               </Col>
-              <Col span={6}>
+              <Col xs={24} lg={6}>
                 <DateInput
                   inputLabel="Departure:"
                   name="departure"
@@ -81,7 +81,7 @@ export const SearchComponent = () => {
                   handleDateInputChange={handleDateInputChange}
                 />
               </Col>
-              <Col span={6}>
+              <Col xs={24} lg={6}>
                 <DateInput
                   inputLabel="Return:"
                   name="return"
@@ -91,7 +91,7 @@ export const SearchComponent = () => {
               </Col>
             </Row>
           </Col>
-          <Col flex="100px" style={{ alignItems: "flex-start" }}>
+          <Col xs={24} lg={4}>
             <ButtonWrapper>
               <Button
                 type="primary"
@@ -106,7 +106,7 @@ export const SearchComponent = () => {
           </Col>
         </Row>
       </Card>
-    </div>
+    </SearchComponentWrapper>
   );
 };
 
@@ -116,4 +116,17 @@ const ButtonWrapper = styled.div`
   height: 100%;
   justify-content: flex-end;
   align-items: flex-end;
+  @media (max-width: 991px) {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+`;
+
+const SearchComponentWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 `;

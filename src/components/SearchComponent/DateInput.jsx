@@ -40,4 +40,8 @@ const DateInputWrapper = styled.div`
   width: 200px;
   display: flex;
   flex-direction: column;
+  @media (max-width: 991px) {
+    width: 100%;
+    margin-bottom: 8px;
+  }
 `;
