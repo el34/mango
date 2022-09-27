@@ -38,7 +38,6 @@ export const PlaceInput = ({
   const [options, setOptions] = useState();
 
   const handleOnInputKeyDown = debounce(async (event) => {
-    console.log();
     setIsLoading(true);
     const places = await getAirportLocations(event.target.value);
     places.length
