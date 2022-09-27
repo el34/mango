@@ -60,6 +60,7 @@ export const SearchComponent = () => {
               <Col xs={24} lg={6}>
                 <PlaceInput
                   inputLabel="From:"
+                  isDisabled={isLoading}
                   name="from"
                   values={
                     from.length ? from.map((city) => city.split("|")[1]) : from
@@ -70,6 +71,7 @@ export const SearchComponent = () => {
               <Col xs={24} lg={6}>
                 <PlaceInput
                   inputLabel="To:"
+                  isDisabled={isLoading}
                   name="to"
                   values={to.length ? to.map((city) => city.split("|")[1]) : to}
                   handlePlaceInputChange={handlePlaceInputChange}
@@ -78,6 +80,7 @@ export const SearchComponent = () => {
               <Col xs={24} lg={6}>
                 <DateInput
                   inputLabel="Departure:"
+                  isDisabled={isLoading}
                   name="departure"
                   value={departureDate.length ? departureDate[2] : undefined}
                   handleDateInputChange={handleDateInputChange}
@@ -86,6 +89,7 @@ export const SearchComponent = () => {
               <Col xs={24} lg={6}>
                 <DateInput
                   inputLabel="Return:"
+                  isDisabled={isLoading}
                   name="return"
                   value={returnDate.length ? returnDate[2] : undefined}
                   handleDateInputChange={handleDateInputChange}

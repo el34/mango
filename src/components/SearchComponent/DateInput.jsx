@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { DatePicker, Typography } from "antd";
 import styled from "styled-components";
 import moment from "moment";
@@ -15,6 +15,7 @@ export const DateInput = ({
   name,
   value,
   handleDateInputChange,
+  isDisabled,
 }) => {
   const handleDatePickerOnChange = (value) => {
     handleDateInputChange(
@@ -27,15 +28,19 @@ export const DateInput = ({
     );
   };
 
+  useEffect(() => {}, [isDisabled]);
+
   return (
     <DateInputWrapper>
       <Text strong>{inputLabel}</Text>
       <DatePicker
         size="large"
+        disabled={isDisabled}
         disabledDate={disabledDate}
         defaultValue={value ? moment(value, dateFormat) : undefined}
         format={dateFormat}
         onChange={handleDatePickerOnChange}
+        allowClear={false}
       />
     </DateInputWrapper>
   );
