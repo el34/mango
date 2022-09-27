@@ -53,7 +53,6 @@ export const PlaceInput = ({
   }, 300);
 
   const handleOnInputSelectChange = (options) => {
-    console.log(options);
     handlePlaceInputChange(options, name);
   };
 

@@ -12,7 +12,6 @@ export const DateInput = ({
   value,
   handleDateInputChange,
 }) => {
-  console.log("date", moment(value).format("YYYY/MM/DD"));
   const handleDatePickerOnChange = (value) => {
     handleDateInputChange(
       [

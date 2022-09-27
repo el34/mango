@@ -43,11 +43,9 @@ export const SearchComponent = () => {
     }
 
     setIsLoading(false);
-    console.log(results);
   };
 
   useEffect(() => {
-    console.log(from, to, departureDate, returnDate);
     from.length && to.length && departureDate.length && returnDate.length
       ? setIsDisabled(false)
       : setIsDisabled(true);
