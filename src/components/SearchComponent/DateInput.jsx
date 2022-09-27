@@ -6,6 +6,10 @@ import moment from "moment";
 const { Text } = Typography;
 const dateFormat = "YYYY-MM-DD";
 
+const disabledDate = (current) => {
+  return current && current < moment().subtract(1, "day").endOf("day");
+};
+
 export const DateInput = ({
   inputLabel,
   name,
@@ -28,6 +32,7 @@ export const DateInput = ({
       <Text strong>{inputLabel}</Text>
       <DatePicker
         size="large"
+        disabledDate={disabledDate}
         defaultValue={value ? moment(value, dateFormat) : undefined}
         format={dateFormat}
         onChange={handleDatePickerOnChange}
