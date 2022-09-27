@@ -38,13 +38,12 @@ export const PlaceInput = ({
   const [options, setOptions] = useState();
 
   const handleOnInputKeyDown = debounce(async (event) => {
-    console.log();
     setIsLoading(true);
     const places = await getAirportLocations(event.target.value);
     places.length
       ? setOptions(
           places.map((airport) => ({
-            value: airport.city.id,
+            value: `${airport.city.id}|${airport.city.name}`,
             label: airport.city.name,
             key: Math.random(),
           }))

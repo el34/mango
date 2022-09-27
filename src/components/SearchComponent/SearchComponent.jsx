@@ -31,8 +31,8 @@ export const SearchComponent = () => {
     setIsLoading(true);
 
     const results = await getFlights({
-      from,
-      to,
+      from: from.map((city) => city.split("|")[0]),
+      to: to.map((city) => city.split("|")[0]),
       departureDate,
       returnDate,
     });
@@ -61,7 +61,9 @@ export const SearchComponent = () => {
                 <PlaceInput
                   inputLabel="From:"
                   name="from"
-                  values={from}
+                  values={
+                    from.length ? from.map((city) => city.split("|")[1]) : from
+                  }
                   handlePlaceInputChange={handlePlaceInputChange}
                 />
               </Col>
@@ -69,7 +71,7 @@ export const SearchComponent = () => {
                 <PlaceInput
                   inputLabel="To:"
                   name="to"
-                  values={to}
+                  values={to.length ? to.map((city) => city.split("|")[1]) : to}
                   handlePlaceInputChange={handlePlaceInputChange}
                 />
               </Col>
