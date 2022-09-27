@@ -37,9 +37,10 @@ export const PlaceInput = ({
   const [isLoading, setIsLoading] = useState(false);
   const [options, setOptions] = useState();
 
-  const handleOnInputKeyDown = debounce(async (searchValue) => {
+  const handleOnInputKeyDown = debounce(async (event) => {
+    console.log();
     setIsLoading(true);
-    const places = await getAirportLocations(searchValue);
+    const places = await getAirportLocations(event.target.value);
     places.length
       ? setOptions(
           places.map((airport) => ({
@@ -69,7 +70,7 @@ export const PlaceInput = ({
         maxTagCount={1}
         loading={isLoading}
         size="large"
-        onSearch={handleOnInputKeyDown}
+        onInputKeyDown={handleOnInputKeyDown}
         onChange={(option) => handleOnInputSelectChange(option)}
         defaultValue={values}
         options={options}
