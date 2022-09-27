@@ -29,38 +29,31 @@ export const FlightResultsItem = ({ item }) => {
                 "day"
               )}
             </Title>
-            <Text secondary>
-              {" "}
-              {item.cityFrom} to {item.cityTo}
-            </Text>
+            <Text secondary>{` ${item.cityFrom} to ${item.cityTo}`}</Text>
           </Row>
           <Row>
             <Timeline style={{ marginTop: "12px" }}>
               <Timeline.Item>
                 <Text strong>
-                  {formatDateFromTimestamp(
+                  {`${formatDateFromTimestamp(
                     item.routesToDestionation[0].dTimeUTC,
                     false
-                  )}
-                  {", "}
-                  {item.cityFrom}
+                  )}, ${item.cityFrom}`}
                 </Text>
                 <Text>{`, ${item.countryFrom.name}`}</Text>
                 <Text secondary> {`(${item.cityCodeFrom})`}</Text>
               </Timeline.Item>
               <Timeline.Item>
                 <Text strong>
-                  {formatDateFromTimestamp(
+                  {`${formatDateFromTimestamp(
                     item.routesToDestionation[
                       item.routesToDestionation.length - 1
                     ].aTimeUTC,
                     false
-                  )}
-                  {", "}
-                  {item.cityTo}
+                  )}, ${item.cityTo}`}
                 </Text>
                 <Text>{`, ${item.countryTo.name}`}</Text>
-                <Text secondary> {`(${item.cityCodeTo})`}</Text>
+                <Text secondary>{` (${item.cityCodeTo})`}</Text>
               </Timeline.Item>
             </Timeline>
           </Row>
@@ -74,7 +67,7 @@ export const FlightResultsItem = ({ item }) => {
           >
             <>
               <Title level={3} style={{ margin: "0", display: "block" }}>
-                {item.price} EUR
+                {`${item.price} EUR`}
               </Title>
               <Text strong>{`Seats: ${item.availability.seats}`}</Text>
             </>
@@ -91,35 +84,28 @@ export const FlightResultsItem = ({ item }) => {
                 "day"
               )}
             </Title>
-            <Text secondary>
-              {" "}
-              {item.cityTo} to {item.cityFrom}
-            </Text>
+            <Text secondary>{` ${item.cityTo} to ${item.cityFrom}`}</Text>
           </Row>
           <Row>
             <Timeline style={{ marginBottom: "12px" }}>
               <Timeline.Item>
                 <Text strong>
-                  {formatDateFromTimestamp(
+                  {`${formatDateFromTimestamp(
                     item.routesFromDestionation[0].dTimeUTC,
                     false
-                  )}
-                  {", "}
-                  {item.cityTo}
+                  )}, ${item.cityTo}`}
                 </Text>
                 <Text>{`, ${item.countryTo.name}`}</Text>
                 <Text secondary>{` (${item.cityCodeTo})`}</Text>
               </Timeline.Item>
               <Timeline.Item>
                 <Text strong>
-                  {formatDateFromTimestamp(
+                  {`${formatDateFromTimestamp(
                     item.routesFromDestionation[
                       item.routesFromDestionation.length - 1
                     ].aTimeUTC,
                     false
-                  )}
-                  {", "}
-                  {item.cityFrom}
+                  )}, ${item.cityFrom}`}
                 </Text>
                 <Text>{`, ${item.countryFrom.name}`}</Text>
                 <Text secondary>{` (${item.cityCodeFrom})`}</Text>
