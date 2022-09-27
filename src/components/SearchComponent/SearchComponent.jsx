@@ -7,7 +7,7 @@ import { getFlights } from "./helpers";
 import { useNavigate } from "react-router-dom";
 import { useSearchContext } from "../../context/SearchContext";
 
-export const SearchComponent = (props) => {
+export const SearchComponent = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
@@ -55,7 +55,7 @@ export const SearchComponent = (props) => {
 
   return (
     <div>
-      <Card title="Default size card" style={{ width: 1200 }}>
+      <Card style={{ width: 1200 }}>
         <Row>
           <Col flex="auto">
             <Row>
@@ -63,6 +63,7 @@ export const SearchComponent = (props) => {
                 <PlaceInput
                   inputLabel="From:"
                   name="from"
+                  values={from}
                   handlePlaceInputChange={handlePlaceInputChange}
                 />
               </Col>
@@ -70,6 +71,7 @@ export const SearchComponent = (props) => {
                 <PlaceInput
                   inputLabel="To:"
                   name="to"
+                  values={to}
                   handlePlaceInputChange={handlePlaceInputChange}
                 />
               </Col>
@@ -77,6 +79,7 @@ export const SearchComponent = (props) => {
                 <DateInput
                   inputLabel="Departure:"
                   name="departure"
+                  value={departureDate.length ? departureDate[2] : undefined}
                   handleDateInputChange={handleDateInputChange}
                 />
               </Col>
@@ -84,6 +87,7 @@ export const SearchComponent = (props) => {
                 <DateInput
                   inputLabel="Return:"
                   name="return"
+                  value={returnDate.length ? returnDate[2] : undefined}
                   handleDateInputChange={handleDateInputChange}
                 />
               </Col>

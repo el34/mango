@@ -6,12 +6,19 @@ import moment from "moment";
 const { Text } = Typography;
 const dateFormat = "YYYY-MM-DD";
 
-export const DateInput = ({ inputLabel, name, handleDateInputChange }) => {
+export const DateInput = ({
+  inputLabel,
+  name,
+  value,
+  handleDateInputChange,
+}) => {
+  console.log("date", moment(value).format("YYYY/MM/DD"));
   const handleDatePickerOnChange = (value) => {
     handleDateInputChange(
       [
         `${moment(value).subtract(1, "day").format(dateFormat)}T22:00`,
         `${moment(value).subtract(-1, "day").format(dateFormat)}T22:00`,
+        value,
       ],
       name
     );
@@ -22,6 +29,7 @@ export const DateInput = ({ inputLabel, name, handleDateInputChange }) => {
       <Text strong>{inputLabel}</Text>
       <DatePicker
         size="large"
+        defaultValue={value ? moment(value, dateFormat) : undefined}
         format={dateFormat}
         onChange={handleDatePickerOnChange}
       />

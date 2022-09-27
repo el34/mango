@@ -7,9 +7,7 @@ import { getAirportLocations } from "./helpers";
 
 const { Text } = Typography;
 
-const tagRender = (props) => {
-  const { label, closable, onClose } = props;
-
+const tagRender = ({ label, closable, onClose }) => {
   const onPreventMouseDown = (event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -30,9 +28,14 @@ const tagRender = (props) => {
   );
 };
 
-export const PlaceInput = ({ inputLabel, name, handlePlaceInputChange }) => {
+export const PlaceInput = ({
+  inputLabel,
+  name,
+  values,
+  handlePlaceInputChange,
+}) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [options, setOptions] = useState([]);
+  const [options, setOptions] = useState();
 
   const handleOnInputKeyDown = debounce(async (searchValue) => {
     setIsLoading(true);
@@ -69,6 +72,7 @@ export const PlaceInput = ({ inputLabel, name, handlePlaceInputChange }) => {
         size="large"
         onSearch={handleOnInputKeyDown}
         onChange={(option) => handleOnInputSelectChange(option)}
+        defaultValue={values}
         options={options}
         style={{
           width: "200px",
