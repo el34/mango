@@ -10,6 +10,7 @@ import { useSearchContext } from "../../context/SearchContext";
 export const SearchComponent = (props) => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
   const { from, setFrom } = useSearchContext();
   const { to, setTo } = useSearchContext();
   const { departureDate, setDepartureDate } = useSearchContext();
@@ -47,6 +48,9 @@ export const SearchComponent = (props) => {
 
   useEffect(() => {
     console.log(from, to, departureDate, returnDate);
+    from.length && to.length && departureDate.length && returnDate.length
+      ? setIsDisabled(false)
+      : setIsDisabled(true);
   }, [from, to, departureDate, returnDate]);
 
   return (
@@ -92,6 +96,7 @@ export const SearchComponent = (props) => {
                 size="large"
                 loading={isLoading}
                 onClick={(e) => handleSubmitForm(e)}
+                disabled={isDisabled}
               >
                 Search
               </Button>
