@@ -33,6 +33,7 @@ export const PlaceInput = ({
   name,
   values,
   handlePlaceInputChange,
+  isDisabled,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [options, setOptions] = useState();
@@ -56,13 +57,14 @@ export const PlaceInput = ({
     handlePlaceInputChange(options, name);
   };
 
-  useEffect(() => {}, [options]);
+  useEffect(() => {}, [options, isDisabled]);
 
   return (
     <PlaceInputWrapper>
       <Text strong>{inputLabel}</Text>
       <Select
         mode="multiple"
+        disabled={isDisabled}
         placeholder="Search airport"
         defaultActiveFirstOption="false"
         tagRender={tagRender}
