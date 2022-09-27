@@ -6,7 +6,6 @@ import { debounce } from "lodash";
 import { getAirportLocations } from "./helpers";
 
 const { Text } = Typography;
-const { Option } = Select;
 
 const tagRender = (props) => {
   const { label, closable, onClose } = props;
@@ -33,12 +32,20 @@ const tagRender = (props) => {
 
 export const PlaceInput = ({ inputLabel, name, handlePlaceInputChange }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [airportsData, setAirportsData] = useState([]);
+  const [options, setOptions] = useState([]);
 
   const handleOnInputKeyDown = debounce(async (searchValue) => {
     setIsLoading(true);
     const places = await getAirportLocations(searchValue);
-    setAirportsData(places);
+    places.length
+      ? setOptions(
+          places.map((airport) => ({
+            value: airport.city.id,
+            label: airport.city.name,
+            key: Math.random(),
+          }))
+        )
+      : setOptions([]);
     setIsLoading(false);
   }, 300);
 
@@ -47,9 +54,7 @@ export const PlaceInput = ({ inputLabel, name, handlePlaceInputChange }) => {
     handlePlaceInputChange(options, name);
   };
 
-  useEffect(() => {
-    console.log(airportsData);
-  }, [airportsData]);
+  useEffect(() => {}, [options]);
 
   return (
     <PlaceInputWrapper>
@@ -59,23 +64,16 @@ export const PlaceInput = ({ inputLabel, name, handlePlaceInputChange }) => {
         placeholder="Search airport"
         defaultActiveFirstOption="false"
         tagRender={tagRender}
-        maxTagCount="1"
+        maxTagCount={1}
         loading={isLoading}
         size="large"
-        dropdownRender={(node) => node}
         onSearch={handleOnInputKeyDown}
         onChange={(option) => handleOnInputSelectChange(option)}
+        options={options}
         style={{
           width: "200px",
         }}
-      >
-        {airportsData.length &&
-          airportsData.map((airport) => (
-            <Option key={airport.airport_int_id} value={airport.city.id}>
-              {airport.city.name}
-            </Option>
-          ))}
-      </Select>
+      ></Select>
     </PlaceInputWrapper>
   );
 };
