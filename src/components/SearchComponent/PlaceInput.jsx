@@ -43,7 +43,7 @@ export const PlaceInput = ({
     places.length
       ? setOptions(
           places.map((airport) => ({
-            value: airport.city.id,
+            value: `${airport.city.id}|${airport.city.name}`,
             label: airport.city.name,
             key: Math.random(),
           }))
