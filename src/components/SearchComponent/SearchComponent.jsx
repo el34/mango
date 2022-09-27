@@ -5,14 +5,16 @@ import { DateInput } from "./DateInput";
 import styled from "styled-components";
 import { getFlights } from "./helpers";
 import { useNavigate } from "react-router-dom";
+import { useSearchContext } from "../../context/SearchContext";
 
-export const SearchComponent = () => {
+export const SearchComponent = (props) => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const [from, setFrom] = useState([]);
-  const [to, setTo] = useState([]);
-  const [departureDate, setDepartureDate] = useState([]);
-  const [returnDate, setReturnDate] = useState([]);
+  const { from, setFrom } = useSearchContext();
+  const { to, setTo } = useSearchContext();
+  const { departureDate, setDepartureDate } = useSearchContext();
+  const { returnDate, setReturnDate } = useSearchContext();
+  const { setSearchResults } = useSearchContext();
 
   const handlePlaceInputChange = (options, name) => {
     name === "from" ? setFrom(options) : setTo(options);
@@ -35,7 +37,7 @@ export const SearchComponent = () => {
     });
 
     if (results.data.length) {
-      console.log("dataaaaa");
+      setSearchResults(results.data);
       navigate("/results");
     }
 

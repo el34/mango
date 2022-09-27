@@ -15,11 +15,10 @@ export const getAirportLocations = async (searchStr) => {
 };
 
 export const getFlights = async (options) => {
-  console.log(options);
+  const url = `${API_URL.flights}&fly_from=${options.from}&fly_to=${options.to}&depart_after=${options.departureDate[0]}&depart_before=${options.departureDate[1]}&rt_depart_after=${options.returnDate[0]}&rt_depart_before=${options.returnDate[1]}`;
+  console.log(url);
   const flights = await axios
-    .get(
-      `${API_URL.flights}&fly_from=${options.from}&fly_to=${options.to}&depart_after=${options.departureDate[0]}&depart_before=${options.departureDate[1]}&rt_depart_after=${options.returnDate[0]}&rt_depart_before=${options.returnDate[1]}`
-    )
+    .get(url)
     .then((response) => response.data)
     .catch((err) => []);
   return flights;
