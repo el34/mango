@@ -8,7 +8,7 @@ import { getAirportLocations } from "./helpers";
 const { Text } = Typography;
 const { Option } = Select;
 
-const tagRender = ({ value, closable, onClose }) => {
+export const TagRender = ({ value, closable, onClose }) => {
   const onPreventMouseDown = (event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -70,7 +70,7 @@ export const PlaceInput = ({
         showArrow="true"
         disabled={isDisabled}
         placeholder="Search airport"
-        tagRender={tagRender}
+        tagRender={TagRender}
         maxTagCount={1}
         loading={isLoading}
         size="large"
