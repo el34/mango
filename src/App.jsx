@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "antd";
-import { Navigation } from "./components/navigation/Navigation";
+import { Navigation } from "./components/Navigation/Navigation";
 import { MainPageList } from "./features/MainPage/MainPageList";
 import { FlightResultsList } from "./features/FlightResults/FlightResultsList";
 import styled from "styled-components";
