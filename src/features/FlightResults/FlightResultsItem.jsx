@@ -29,7 +29,7 @@ export const FlightResultsItem = ({ item }) => {
                 "day"
               )}
             </Title>
-            <Text secondary>{` ${item.cityFrom} to ${item.cityTo}`}</Text>
+            <Text secondary="true">{` ${item.cityFrom} to ${item.cityTo}`}</Text>
           </Row>
           <Row>
             <Timeline style={{ marginTop: "12px" }}>
@@ -41,7 +41,7 @@ export const FlightResultsItem = ({ item }) => {
                   )}, ${item.cityFrom}`}
                 </Text>
                 <Text>{`, ${item.countryFrom.name}`}</Text>
-                <Text secondary> {`(${item.cityCodeFrom})`}</Text>
+                <Text secondary="true"> {`(${item.cityCodeFrom})`}</Text>
               </Timeline.Item>
               <Timeline.Item>
                 <Text strong>
@@ -53,7 +53,7 @@ export const FlightResultsItem = ({ item }) => {
                   )}, ${item.cityTo}`}
                 </Text>
                 <Text>{`, ${item.countryTo.name}`}</Text>
-                <Text secondary>{` (${item.cityCodeTo})`}</Text>
+                <Text secondary="true">{` (${item.cityCodeTo})`}</Text>
               </Timeline.Item>
             </Timeline>
           </Row>
@@ -84,7 +84,7 @@ export const FlightResultsItem = ({ item }) => {
                 "day"
               )}
             </Title>
-            <Text secondary>{` ${item.cityTo} to ${item.cityFrom}`}</Text>
+            <Text secondary="true">{` ${item.cityTo} to ${item.cityFrom}`}</Text>
           </Row>
           <Row>
             <Timeline style={{ marginBottom: "12px" }}>
@@ -96,7 +96,7 @@ export const FlightResultsItem = ({ item }) => {
                   )}, ${item.cityTo}`}
                 </Text>
                 <Text>{`, ${item.countryTo.name}`}</Text>
-                <Text secondary>{` (${item.cityCodeTo})`}</Text>
+                <Text secondary="true">{` (${item.cityCodeTo})`}</Text>
               </Timeline.Item>
               <Timeline.Item>
                 <Text strong>
@@ -108,7 +108,7 @@ export const FlightResultsItem = ({ item }) => {
                   )}, ${item.cityFrom}`}
                 </Text>
                 <Text>{`, ${item.countryFrom.name}`}</Text>
-                <Text secondary>{` (${item.cityCodeFrom})`}</Text>
+                <Text secondary="true">{` (${item.cityCodeFrom})`}</Text>
               </Timeline.Item>
             </Timeline>
           </Row>
