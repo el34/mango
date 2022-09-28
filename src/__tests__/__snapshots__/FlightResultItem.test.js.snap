@@ -1,0 +1,432 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlightResultsItem renders correctly with flight 1`] = `
+<li
+  className="ant-list-item"
+  style={
+    Object {
+      "display": "flex",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="ant-row"
+    style={
+      Object {
+        "display": "flex",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="ant-col ant-col-24"
+      style={Object {}}
+    >
+      <div
+        className="ant-row"
+        style={
+          Object {
+            "flexDirection": "column",
+            "marginBottom": "1.2rem",
+          }
+        }
+      >
+        <h5
+          className="ant-typography"
+          onClick={null}
+          style={
+            Object {
+              "WebkitLineClamp": undefined,
+              "marginBottom": "0",
+            }
+          }
+        >
+          Fri, September 30
+        </h5>
+        <span
+          className="ant-typography"
+          onClick={null}
+          secondary="true"
+          style={
+            Object {
+              "WebkitLineClamp": undefined,
+            }
+          }
+        >
+           Prague to Barcelona
+        </span>
+      </div>
+      <div
+        className="ant-row"
+        style={Object {}}
+      >
+        <ul
+          className="ant-timeline"
+          style={
+            Object {
+              "marginTop": "12px",
+            }
+          }
+        >
+          <li
+            className="ant-timeline-item"
+          >
+            <div
+              className="ant-timeline-item-tail"
+            />
+            <div
+              className="ant-timeline-item-head ant-timeline-item-head-blue"
+              style={
+                Object {
+                  "borderColor": undefined,
+                  "color": undefined,
+                }
+              }
+            />
+            <div
+              className="ant-timeline-item-content"
+            >
+              <span
+                className="ant-typography"
+                onClick={null}
+                style={
+                  Object {
+                    "WebkitLineClamp": undefined,
+                  }
+                }
+              >
+                <strong>
+                  3:55:00 PM, Prague
+                </strong>
+              </span>
+              <span
+                className="ant-typography"
+                onClick={null}
+                style={
+                  Object {
+                    "WebkitLineClamp": undefined,
+                  }
+                }
+              >
+                , Czechia
+              </span>
+              <span
+                className="ant-typography"
+                onClick={null}
+                secondary="true"
+                style={
+                  Object {
+                    "WebkitLineClamp": undefined,
+                  }
+                }
+              >
+                 
+                (PRG)
+              </span>
+            </div>
+          </li>
+          <li
+            className="ant-timeline-item ant-timeline-item-last"
+          >
+            <div
+              className="ant-timeline-item-tail"
+            />
+            <div
+              className="ant-timeline-item-head ant-timeline-item-head-blue"
+              style={
+                Object {
+                  "borderColor": undefined,
+                  "color": undefined,
+                }
+              }
+            />
+            <div
+              className="ant-timeline-item-content"
+            >
+              <span
+                className="ant-typography"
+                onClick={null}
+                style={
+                  Object {
+                    "WebkitLineClamp": undefined,
+                  }
+                }
+              >
+                <strong>
+                  6:15:00 PM, Barcelona
+                </strong>
+              </span>
+              <span
+                className="ant-typography"
+                onClick={null}
+                style={
+                  Object {
+                    "WebkitLineClamp": undefined,
+                  }
+                }
+              >
+                , Spain
+              </span>
+              <span
+                className="ant-typography"
+                onClick={null}
+                secondary="true"
+                style={
+                  Object {
+                    "WebkitLineClamp": undefined,
+                  }
+                }
+              >
+                 (BCN)
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div
+        className="ant-row"
+        style={Object {}}
+      >
+        <span
+          className="ant-tag ant-tag-volcano"
+          style={
+            Object {
+              "backgroundColor": undefined,
+            }
+          }
+        >
+          2h 20m
+        </span>
+        <span
+          className="ant-tag ant-tag-blue"
+          style={
+            Object {
+              "backgroundColor": undefined,
+            }
+          }
+        >
+          nights in destination: 1
+        </span>
+      </div>
+      <div
+        className="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-right"
+        role="separator"
+        style={
+          Object {
+            "marginBottom": "0",
+            "marginTop": "0",
+          }
+        }
+      >
+        <span
+          className="ant-divider-inner-text"
+          style={Object {}}
+        >
+          <h3
+            className="ant-typography"
+            onClick={null}
+            style={
+              Object {
+                "WebkitLineClamp": undefined,
+                "display": "block",
+                "margin": "0",
+              }
+            }
+          >
+            317 EUR
+          </h3>
+          <span
+            className="ant-typography"
+            onClick={null}
+            style={
+              Object {
+                "WebkitLineClamp": undefined,
+              }
+            }
+          >
+            <strong>
+              Seats: 2
+            </strong>
+          </span>
+        </span>
+      </div>
+      <div
+        className="ant-row"
+        style={
+          Object {
+            "flexDirection": "column",
+            "marginBottom": "1.2rem",
+          }
+        }
+      >
+        <h5
+          className="ant-typography"
+          onClick={null}
+          style={
+            Object {
+              "WebkitLineClamp": undefined,
+              "marginBottom": "0",
+            }
+          }
+        >
+          Sat, October 1
+        </h5>
+        <span
+          className="ant-typography"
+          onClick={null}
+          secondary="true"
+          style={
+            Object {
+              "WebkitLineClamp": undefined,
+            }
+          }
+        >
+           Barcelona to Prague
+        </span>
+      </div>
+      <div
+        className="ant-row"
+        style={Object {}}
+      >
+        <ul
+          className="ant-timeline"
+          style={
+            Object {
+              "marginBottom": "12px",
+            }
+          }
+        >
+          <li
+            className="ant-timeline-item"
+          >
+            <div
+              className="ant-timeline-item-tail"
+            />
+            <div
+              className="ant-timeline-item-head ant-timeline-item-head-blue"
+              style={
+                Object {
+                  "borderColor": undefined,
+                  "color": undefined,
+                }
+              }
+            />
+            <div
+              className="ant-timeline-item-content"
+            >
+              <span
+                className="ant-typography"
+                onClick={null}
+                style={
+                  Object {
+                    "WebkitLineClamp": undefined,
+                  }
+                }
+              >
+                <strong>
+                  8:40:00 AM, Barcelona
+                </strong>
+              </span>
+              <span
+                className="ant-typography"
+                onClick={null}
+                style={
+                  Object {
+                    "WebkitLineClamp": undefined,
+                  }
+                }
+              >
+                , Spain
+              </span>
+              <span
+                className="ant-typography"
+                onClick={null}
+                secondary="true"
+                style={
+                  Object {
+                    "WebkitLineClamp": undefined,
+                  }
+                }
+              >
+                 (BCN)
+              </span>
+            </div>
+          </li>
+          <li
+            className="ant-timeline-item ant-timeline-item-last"
+          >
+            <div
+              className="ant-timeline-item-tail"
+            />
+            <div
+              className="ant-timeline-item-head ant-timeline-item-head-blue"
+              style={
+                Object {
+                  "borderColor": undefined,
+                  "color": undefined,
+                }
+              }
+            />
+            <div
+              className="ant-timeline-item-content"
+            >
+              <span
+                className="ant-typography"
+                onClick={null}
+                style={
+                  Object {
+                    "WebkitLineClamp": undefined,
+                  }
+                }
+              >
+                <strong>
+                  9:55:00 PM, Prague
+                </strong>
+              </span>
+              <span
+                className="ant-typography"
+                onClick={null}
+                style={
+                  Object {
+                    "WebkitLineClamp": undefined,
+                  }
+                }
+              >
+                , Czechia
+              </span>
+              <span
+                className="ant-typography"
+                onClick={null}
+                secondary="true"
+                style={
+                  Object {
+                    "WebkitLineClamp": undefined,
+                  }
+                }
+              >
+                 (PRG)
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div
+        className="ant-row"
+        style={Object {}}
+      >
+        <span
+          className="ant-tag ant-tag-volcano"
+          style={
+            Object {
+              "backgroundColor": undefined,
+            }
+          }
+        >
+          13h 15m
+        </span>
+      </div>
+    </div>
+  </div>
+</li>
+`;

@@ -8,7 +8,7 @@ import { getAirportLocations } from "./helpers";
 const { Text } = Typography;
 const { Option } = Select;
 
-const tagRender = ({ value, closable, onClose }) => {
+export const TagRender = ({ value, closable, onClose }) => {
   const onPreventMouseDown = (event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -54,8 +54,11 @@ export const PlaceInput = ({
     setIsLoading(false);
   }, 300);
 
-  const handleOnInputSelectChange = (options) => {
-    handlePlaceInputChange(options, name);
+  const handleOnInputSelectChange = (values) => {
+    handlePlaceInputChange(
+      values.map((v) => v.value),
+      name
+    );
   };
 
   useEffect(() => {}, [options, isDisabled]);
@@ -64,26 +67,34 @@ export const PlaceInput = ({
     <PlaceInputWrapper>
       <Text strong>{inputLabel}</Text>
       <Select
+        data-testid="place-input"
         mode="multiple"
+        labelInValue="true"
         dropdownMatchSelectWidth={false}
-        showSearch={true}
+        showSearch="true"
+        showArrow="true"
         disabled={isDisabled}
         placeholder="Search airport"
-        tagRender={tagRender}
+        tagRender={TagRender}
         maxTagCount={1}
         loading={isLoading}
         size="large"
         filterOption={false}
         defaultActiveFirstOption={false}
         onSearch={handleOnInputKeyDown}
-        onChange={(options) => handleOnInputSelectChange(options)}
+        onChange={(values) => handleOnInputSelectChange(values)}
         defaultValue={values}
         style={{ width: "100%" }}
+        optionLabelProp="name"
       >
         {options &&
           options.length &&
           options.map((option) => (
-            <Option key={option.key} value={option.value}>
+            <Option
+              key={option.key}
+              value={option.value}
+              name={option.cityName}
+            >
               <Text strong style={{ display: "block" }}>
                 {option.cityName}
               </Text>
