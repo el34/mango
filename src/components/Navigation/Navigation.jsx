@@ -13,9 +13,6 @@ export const Navigation = () => {
             <Logo />
           </Link>
         </Col>
-        <Col span={4} offset={12}>
-          {/* TODO: make dropdown with booking item and subpage */}
-        </Col>
       </Row>
     </HeaderWrapper>
   );
@@ -28,7 +25,6 @@ const HeaderWrapper = styled.section`
   height: 64px;
   padding: 0 24px;
   background: #fff;
-
   @media (max-width: 991px) {
     height: 40px;
   }
