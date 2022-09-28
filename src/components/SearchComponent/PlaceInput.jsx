@@ -64,6 +64,7 @@ export const PlaceInput = ({
     <PlaceInputWrapper>
       <Text strong>{inputLabel}</Text>
       <Select
+        data-testid="place-input"
         mode="multiple"
         dropdownMatchSelectWidth={false}
         showSearch="true"
