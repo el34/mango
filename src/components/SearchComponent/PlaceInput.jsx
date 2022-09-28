@@ -66,7 +66,8 @@ export const PlaceInput = ({
       <Select
         mode="multiple"
         dropdownMatchSelectWidth={false}
-        showSearch={true}
+        showSearch="true"
+        showArrow="true"
         disabled={isDisabled}
         placeholder="Search airport"
         tagRender={tagRender}
