@@ -65,6 +65,7 @@ export const PlaceInput = ({
       <Text strong>{inputLabel}</Text>
       <Select
         mode="multiple"
+        dropdownMatchSelectWidth={false}
         showSearch={true}
         disabled={isDisabled}
         placeholder="Search airport"
