@@ -6,8 +6,9 @@ import { debounce } from "lodash";
 import { getAirportLocations } from "./helpers";
 
 const { Text } = Typography;
+const { Option } = Select;
 
-const tagRender = ({ label, closable, onClose }) => {
+const tagRender = ({ value, closable, onClose }) => {
   const onPreventMouseDown = (event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -19,11 +20,9 @@ const tagRender = ({ label, closable, onClose }) => {
       onMouseDown={onPreventMouseDown}
       closable={closable}
       onClose={onClose}
-      style={{
-        marginRight: 3,
-      }}
+      style={{ marginRight: 3 }}
     >
-      {label}
+      {value.split("|")[1]}
     </Tag>
   );
 };
@@ -36,17 +35,19 @@ export const PlaceInput = ({
   isDisabled,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [options, setOptions] = useState();
+  const [options, setOptions] = useState([]);
 
-  const handleOnInputKeyDown = debounce(async (event) => {
+  const handleOnInputKeyDown = debounce(async (searchValue) => {
     setIsLoading(true);
-    const places = await getAirportLocations(event.target.value);
-    places.length
+    const places = await getAirportLocations(searchValue);
+    places && places.length
       ? setOptions(
           places.map((airport) => ({
-            value: `${airport.city.id}|${airport.city.name}`,
-            label: airport.city.name,
-            key: Math.random(),
+            value: `${airport.city.id}|${airport.city.name}|${airport.code}|${airport.airport_int_id}`,
+            cityName: airport.city.name,
+            airportName: airport.name,
+            airportCode: airport.code,
+            key: airport.airport_int_id,
           }))
         )
       : setOptions([]);
@@ -64,19 +65,31 @@ export const PlaceInput = ({
       <Text strong>{inputLabel}</Text>
       <Select
         mode="multiple"
+        showSearch={true}
         disabled={isDisabled}
         placeholder="Search airport"
-        defaultActiveFirstOption="false"
         tagRender={tagRender}
         maxTagCount={1}
         loading={isLoading}
         size="large"
-        onInputKeyDown={handleOnInputKeyDown}
-        onChange={(option) => handleOnInputSelectChange(option)}
+        filterOption={false}
+        defaultActiveFirstOption={false}
+        onSearch={handleOnInputKeyDown}
+        onChange={(options) => handleOnInputSelectChange(options)}
         defaultValue={values}
-        options={options}
         style={{ width: "100%" }}
-      ></Select>
+      >
+        {options &&
+          options.length &&
+          options.map((option) => (
+            <Option key={option.key} value={option.value}>
+              <Text strong style={{ display: "block" }}>
+                {option.cityName}
+              </Text>
+              <Text secondary="true">{`${option.airportName} (${option.airportCode})`}</Text>
+            </Option>
+          ))}
+      </Select>
     </PlaceInputWrapper>
   );
 };

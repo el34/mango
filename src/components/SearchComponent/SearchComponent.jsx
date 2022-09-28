@@ -62,9 +62,7 @@ export const SearchComponent = () => {
                   inputLabel="From:"
                   isDisabled={isLoading}
                   name="from"
-                  values={
-                    from.length ? from.map((city) => city.split("|")[1]) : from
-                  }
+                  values={from && from.length ? from : []}
                   handlePlaceInputChange={handlePlaceInputChange}
                 />
               </Col>
@@ -73,7 +71,7 @@ export const SearchComponent = () => {
                   inputLabel="To:"
                   isDisabled={isLoading}
                   name="to"
-                  values={to.length ? to.map((city) => city.split("|")[1]) : to}
+                  values={to && to.length ? to : []}
                   handlePlaceInputChange={handlePlaceInputChange}
                 />
               </Col>
